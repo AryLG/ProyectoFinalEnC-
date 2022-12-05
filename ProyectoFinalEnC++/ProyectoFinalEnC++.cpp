@@ -1,8 +1,26 @@
 // ProyectoFinalEnC++.cpp : //
 #include <iostream>
 
+using namespace std;
 
-using namespace::std;
+
+void menu();
+void ListaSimples();
+void ListaDobles();
+void ListaDobleCirculares();
+void Pilas();
+void Colas();
+void Arboles();
+void Grafoss();
+
+void BubbleS();
+void InsertionS();
+void CountingS();
+void MergeS();
+void ShellS();
+void SelectionS();
+void QuickS();
+
 
 
 //LISTA simple
@@ -30,7 +48,7 @@ void modificarNodoDoble();
 void eliminarNodoDoble();
 void desplegarListaPUDoble();
 void desplegarListaUPDoble();
- 
+
 //LISTA DOBLE circular
 struct nodoCircular {
 	int dato;
@@ -79,392 +97,610 @@ void mergeSort();
 void shellsort1();
 void SelecccionSort();
 void grafoxd();
-int main() 
+int main()
 {
+	
 
-	int opcion_menu = 0;
-	int ListaSimple = 1;
-	do
-	{
-		cout << "\n|---------------------------------------------|";
-		cout << "\n|            °PROYECTO FINAL EN C++°          |";
-		cout << "\n|-------------------------|-------------------|";
-		cout << "\n| 1. Lista Simple         | 8. Bubble Sort    |";
-		cout << "\n| 2. Lista Doble          | 9. Insertion Sort |";
-		cout << "\n| 3. Lista Doble Circular | 10. Counting Sort |";
-		cout << "\n| 4. Pila                 | 11. Merge Sort    |";
-		cout << "\n| 5. Cola                 | 12. Shell Sort    |";
-		cout << "\n| 6. Arbol                | 13. Selection Sort|";
-		cout << "\n| 7. Grafo                | 14. Quick Sort    |";
-		cout << "\n|                         |                   |";
-		cout << "\n|                         |                   |";
-		cout << "\n|                  |------|-----|             |";
-		cout << "\n|                  |  15.Salir  |             |";
-		cout << "\n|------------------|------|-----|-------------|";
+	int opcion = 0;
+
+    do {
+        menu();
+        cin >> opcion;
+
+        switch (opcion)
+        {
+        case 1:
+            ListaSimples();
+            break;
+
+       case 2:
+            ListaDobles();
+            break;
+
+        case 3:
+            ListaDobleCirculares();
+            break;
+        case 4:
+            Pilas();
+            break;
+        case 5:
+            Colas();
+            break;
+        case 6:
+            Arboles();
+            break;
+        case 7:
+            Grafoss();
+            break;
+        case 8:
+            BubbleS();
+            break;
+        case 9:
+            InsertionS();
+            break;
+        case 10:
+			CountingS();
+            break;
+        case 11:
+            MergeS();
+            break;
+        case 12:
+            ShellS();
+            break;
+        case 13:
+            SelectionS();
+            break;
+        case 14:
+            QuickS();
+            break;
+        case 15:
+			cout << "\n\n Programa finalizado...";
+			exit(EXIT_SUCCESS);
+			break;
+        default:
+            cout << "\n\nOPCION NO VALIDA" << endl;
+            break;
+        }
+
+    } while (opcion != 16);
+
+    return 0;
+}
+
+void menu()
+{
+    cout << "\n|---------------------------------------------|";
+    cout << "\n|            °PROYECTO FINAL EN C++°          |";
+    cout << "\n|-------------------------|-------------------|";
+    cout << "\n| 1. Lista Simple         | 8. Bubble Sort    |";
+    cout << "\n| 2. Lista Doble          | 9. Insertion Sort |";
+    cout << "\n| 3. Lista Doble Circular | 10. Counting Sort |";
+    cout << "\n| 4. Pila                 | 11. Merge Sort    |";
+    cout << "\n| 5. Cola                 | 12. Shell Sort    |";
+    cout << "\n| 6. Arbol                | 13. Selection Sort|";
+    cout << "\n| 7. Grafo                | 14. Quick Sort    |";
+    cout << "\n|                         |                   |";
+    cout << "\n|                         |                   |";
+    cout << "\n|                  |------|-----|             |";
+    cout << "\n|                  |  15.Salir  |             |";
+    cout << "\n|------------------|------|-----|-------------|";
+    cout << "\n\n Escoja una Opcion: ";
+}
+
+void ListaSimples()
+{
+	int opcion = 0;
+
+    do {
+        cout << "Lista simple" << endl;
+        cout << "\n|-------------------------------------|";
+        cout << "\n|           ° LISTA SIMPLE °          |";
+        cout << "\n|------------------|------------------|";
+        cout << "\n| 1. Insertar      | 4. Eliminar      |";
+        cout << "\n| 2. Buscar        | 5. Desplegar     |";
+        cout << "\n| 3. Modificar     | 6. Menu          |";
+        cout << "\n|------------------|------------------|";
+        cout << "\n\n Escoja una Opcion: ";
+        cin >> opcion;
+
+        switch (opcion)
+        {
+        case 1:
+            cout << "\n\n INSERTA NODO EN LA LISTA \n\n";
+            insertarNodoSimple();
+            break;
+        case 2:
+            cout << "\n\n BUSCAR UN NODO EN LA LISTA \n\n";
+            buscarNodoSimple();
+            break;
+        case 3:
+            cout << "\n\n MODIFICAR UN NODO DE LA LISTA \n\n";
+            modificarNodoSimple();
+            break;
+        case 4:
+            cout << "\n\n ELIMINAR UN NODO DE LA LISTA \n\n";
+            eliminarNodoSimple();
+            break;
+        case 5:
+            cout << "\n\n DESPLEGAR LISTA DE NODOS \n\n";
+            desplegarListaSimple();
+            break;
+        case 6:
+			cout << "\n\n Programa finalizado...";
+			break;
+        default:
+            cout << "\n\n Opcion No Valida \n\n";
+      
+        break;
+  }
+
+    } while (opcion != 6);
+}
+
+///////////////////////////7
+void ListaDobles()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Lista Doble" << endl;
+		cout << "\n|-------------------------------------|";
+		cout << "\n|           ° LISTA DOBLE °           |";
+		cout << "\n|------------------|------------------|";
+		cout << "\n| 1. Insertar      | 5. Desplegar P.U |";
+		cout << "\n| 2. Buscar        | 6. Desplegar U.P |";
+		cout << "\n| 3. Modificar     | 7. Menu          |";
+		cout << "\n| 4. Eliminar      |                  |";
+		cout << "\n|------------------|------------------|";
 		cout << "\n\n Escoja una Opcion: ";
-		cin >> ListaSimple;
-		switch (ListaSimple) {
+		cin >> opcion;
+		switch (opcion) {
 		case 1:
-			cout << "Lista simple" << endl;
-			cout << "\n|-------------------------------------|";
-			cout << "\n|           ° LISTA SIMPLE °          |";
-			cout << "\n|------------------|------------------|";
-			cout << "\n| 1. Insertar      | 4. Eliminar      |";
-			cout << "\n| 2. Buscar        | 5. Desplegar     |";
-			cout << "\n| 3. Modificar     | 6. Salir         |";
-			cout << "\n|------------------|------------------|";
-			cout << "\n\n Escoja una Opcion: ";
-			cin >> ListaSimple;
-			switch (ListaSimple)
-			{
-			case 1:
-				cout << "\n\n INSERTA NODO EN LA LISTA \n\n";
-				insertarNodoSimple();
-				break;
-			case 2:
-				cout << "\n\n BUSCAR UN NODO EN LA LISTA \n\n";
-				buscarNodoSimple();
-				break;
-			case 3:
-				cout << "\n\n MODIFICAR UN NODO DE LA LISTA \n\n";
-				modificarNodoSimple();
-				break;
-			case 4:
-				cout << "\n\n ELIMINAR UN NODO DE LA LISTA \n\n";
-				eliminarNodoSimple();
-				break;
-			case 5:
-				cout << "\n\n DESPLEGAR LISTA DE NODOS \n\n";
-				desplegarListaSimple();
-				break;
-			case 6:
-				cout << "\n\n Programa finalizado...";
-				break;
-			default:
-				cout << "\n\n Opcion No Valida \n\n";
-			}
+			cout << "\n\n INSERTA NODO EN LA LISTA \n\n";
+			insertarNodoDoble();
 			break;
-
-
 		case 2:
-	
-			cout << "Lista Doble" << endl;
-			cout << "\n|-------------------------------------|";
-			cout << "\n|           ° LISTA DOBLE °           |";
-			cout << "\n|------------------|------------------|";
-			cout << "\n| 1. Insertar      | 5. Desplegar P.U |";
-			cout << "\n| 2. Buscar        | 6. Desplegar U.P |";
-			cout << "\n| 3. Modificar     | 7. Salir         |";
-			cout << "\n| 4. Eliminar      |                  |";
-			cout << "\n|------------------|------------------|";
-			cout << "\n\n Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << "\n\n INSERTA NODO EN LA LISTA \n\n";
-				insertarNodoDoble();
-				break;
-			case 2:
-				cout << "\n\n BUSCAR UN NODO EN LA LISTA \n\n";
-				buscarNodoDoble();
-				break;
-			case 3:
-				cout << "\n\n MODIFICAR UN NODO DE LA LISTA \n\n";
-				modificarNodoDoble();
-				break;
-			case 4:
-				cout << "\n\n ELIMINAR UN NODO DE LA LISTA \n\n";
-				eliminarNodoDoble();
-				break;
-			case 5:
-				cout << "\n\n DESPLEGAR LISTA DE NODOS DEL PRIMERO AL UTLIMO\n\n";
-				desplegarListaPUDoble();
-				break;
-			case 6:
-				cout << "\n\n DESPLEGAR LISTA DE NODOS DEL UTLIMO AL PRIMERO\n\n";
-				desplegarListaUPDoble();
-				break;
-			case 7:
-				cout << "\n\n Programa finalizado...";
-				break;
-			default:
-				cout << "\n\n Opcion No Valida \n\n";
-			}
+			cout << "\n\n BUSCAR UN NODO EN LA LISTA \n\n";
+			buscarNodoDoble();
 			break;
-	
 		case 3:
-			cout << "Lista Doble Circular" << endl;
-			cout << "\n|-------------------------------------|";
-			cout << "\n|      ° LISTA CIRCULAR DOBLE °       |";
-			cout << "\n|------------------|------------------|";
-			cout << "\n| 1. Insertar      | 5. Desplegar P.U |";
-			cout << "\n| 2. Buscar        | 6. Desplegar U.P |";
-			cout << "\n| 3. Modificar     | 7. Salir         |";
-			cout << "\n| 4. Eliminar      |                  |";
-			cout << "\n|------------------|------------------|";
-			cout << "\n\n Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << "\n\n INSERTA NODO EN LA LISTA \n\n";
-				insertarNodoCircular();
-				break;
-			case 2:
-				cout << "\n\n BUSCAR UN NODO EN LA LISTA \n\n";
-				buscarNodoCircular();
-				break;
-			case 3:
-				cout << "\n\n MODIFICAR UN NODO DE LA LISTA \n\n";
-				modificarNodoCircular();
-				break;
-			case 4:
-				cout << "\n\n ELIMINAR UN NODO DE LA LISTA \n\n";
-				eliminarNodoCircular();
-				break;
-			case 5:
-				cout << "\n\n DESPLEGAR LISTA DE NODOS DEL PRIMERO AL UTLIMO\n\n";
-				desplegarListaPUCircular();
-				break;
-			case 6:
-				cout << "\n\n DESPLEGAR LISTA DE NODOS DEL UTLIMO AL PRIMERO\n\n";
-				desplegarListaUPCircular();
-				break;
-			case 7:
-				cout << "\n\n Programa finalizado...";
-				break;
-			default:
-				cout << "\n\n Opcion No Valida \n\n";
-			}
+			cout << "\n\n MODIFICAR UN NODO DE LA LISTA \n\n";
+			modificarNodoDoble();
 			break;
 		case 4:
-			cout << "Pila" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|              ° PILA °               |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Insertar      | 4. Eliminar      |";
-			cout << endl << "| 2. Buscar        | 5. Desplegar     |";
-			cout << endl << "| 3. Modificar     | 6. Salir         |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " INSERTA NODO EN LA PILA " << endl << endl;
-				insertarNodoPila();
-				break;
-			case 2:
-				cout << endl << endl << " BUSCAR UN NODO EN LA PILA " << endl << endl;
-				buscarNodoPila();
-				break;
-			case 3:
-				cout << endl << endl << " MODIFICAR UN NODO DE LA PILA " << endl << endl;
-				modificarNodoPila();
-				break;
-			case 4:
-				cout << endl << endl << " ELIMINAR UN NODO DE LA PILA " << endl << endl;
-				eliminarNodoPila();
-				break;
-			case 5:
-				cout << endl << endl << " DESPLEGAR PILA DE NODOS " << endl << endl;
-				desplegarPilaPila();
+			cout << "\n\n ELIMINAR UN NODO DE LA LISTA \n\n";
+			eliminarNodoDoble();
 			break;
-			case 6:
-				cout << endl << endl << " Programa finalizado..." << endl << endl;
-				}break;
-			
-			
 		case 5:
-			cout << "Cola" << endl;	
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|              ° COLA °               |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Insertar      | 4. Eliminar      |";
-			cout << endl << "| 2. Buscar        | 5. Desplegar     |";
-			cout << endl << "| 3. Modificar     | 6. Salir         |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " INSERTA NODO EN LA COLA " << endl << endl;
-				insertarNodoCola();
-				break;
-			case 2:
-				cout << endl << endl << " BUSCAR UN NODO EN LA COLA " << endl << endl;
-				buscarNodoCola();
-				break;
-			case 3:
-				cout << endl << endl << " MODIFICAR UN NODO DE LA COLA " << endl << endl;
-				modificarNodoCola();
-				break;
-			case 4:
-				cout << endl << endl << " ELIMINAR UN NODO DE LA COLA " << endl << endl;
-				eliminarNodoCola();
-				break;
-			case 5:
-				cout << endl << endl << " DESPLEGAR COLA DE NODOS " << endl << endl;
-				desplegarColaCola();
-				break;
-			case 6:
-				cout << endl << endl << " Programa finalizado..." << endl << endl;
-			}break;
-			
+			cout << "\n\n DESPLEGAR LISTA DE NODOS DEL PRIMERO AL UTLIMO\n\n";
+			desplegarListaPUDoble();
+			break;
 		case 6:
-			cout << "Arbol" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|     ° ARBOL BINARIO DE BUSQUEDA °   |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Crear Arbol                      |";
-			cout << endl << "| 2. Salir                            |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-		case 1:
-			cout << endl << endl << " Crear Arbol " << endl << endl;
-			ArbolBB();
-			}
+			cout << "\n\n DESPLEGAR LISTA DE NODOS DEL UTLIMO AL PRIMERO\n\n";
+			desplegarListaUPDoble();
 			break;
 		case 7:
-			cout << "Grafo" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|              ° GRAFO °              |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Mostrar matriz                   |";
-			cout << endl << "| 2. Salir                            |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " Mostrar Matriz " << endl << endl;
-				grafoxd();
-			}
-			break;
-		case 8:
-			cout << "Bubble Sort" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|           ° BUBBLE SORT  °          |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Crear Lista                      |";
-			cout << endl << "| 2. Salir                            |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " Crear Lista " << endl << endl;
-				BubbleSort();
-			}
-			break;
-		case 9:
-			cout << "Insertion Sort" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|           ° INSERTION SORT  °       |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Crear Lista                      |";
-			cout << endl << "| 2. Salir                            |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " Crear Lista " << endl << endl;
-				InsertionSort();
-			}
-			break;
-		case 10:
-			cout << "Counting Sort" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|           ° COUNTING SORT  °        |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Ver Orden de Lista               |";
-			cout << endl << "| 2. Salir                            |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " Lista Ordenada " << endl << endl;
-				CountingSort();
-			}
-			break;
-		case 11:
-			cout << "Merge Sort" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|           ° MERGE SORT  °           |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Ver Lista                        |";
-			cout << endl << "| 2. Salir                            |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " Lista  " << endl << endl;
-				mergeSort();
-			}
-			break;
-		case 12:
-			cout << "Shell Sort" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|           ° SHELL SORT  °           |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Ver Lista                        |";
-			cout << endl << "| 2. Salir                            |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " Lista  " << endl << endl;
-				shellsort1();
-			}
-			break;
-	
-		case 13:
-			cout << "Selection Sort" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|           ° SELECTION SORT  °       |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Ver Lista                        |";
-			cout << endl << "| 2. Salir                            |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " Lista  " << endl << endl;
-				SelecccionSort();
-			}
-			break;
-		case 14:
-			cout << "Quick Sort" << endl;
-			cout << endl << "|-------------------------------------|";
-			cout << endl << "|           ° QUICK SORT  °           |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << "| 1. Ver Lista                        |";
-			cout << endl << "| 2. Salir                            |";
-			cout << endl << "|------------------|------------------|";
-			cout << endl << endl << " Escoja una Opcion: ";
-			cin >> opcion_menu;
-			switch (opcion_menu) {
-			case 1:
-				cout << endl << endl << " Lista  " << endl << endl;
-				mergeSort();
-			}
-			break;
-		case 15:
 			cout << "\n\n Programa finalizado...";
-			
 			break;
 		default:
 			cout << "\n\n Opcion No Valida \n\n";
+		break;
 		}
-	} while (opcion_menu != 20);
-	return 0;
-}
 
+	} while (opcion != 7);
+	
+}
+//////////////////////////////////////////////////////////
+void ListaDobleCirculares()
+{
+	int opcion = 0;
+	do {
+		cout << "Lista Doble Circular" << endl;
+		cout << "\n|-------------------------------------|";
+		cout << "\n|      ° LISTA CIRCULAR DOBLE °       |";
+		cout << "\n|------------------|------------------|";
+		cout << "\n| 1. Insertar      | 5. Desplegar P.U |";
+		cout << "\n| 2. Buscar        | 6. Desplegar U.P |";
+		cout << "\n| 3. Modificar     | 7. Menu          |";
+		cout << "\n| 4. Eliminar      |                  |";
+		cout << "\n|------------------|------------------|";
+		cout << "\n\n Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << "\n\n INSERTA NODO EN LA LISTA \n\n";
+			insertarNodoCircular();
+			break;
+		case 2:
+			cout << "\n\n BUSCAR UN NODO EN LA LISTA \n\n";
+			buscarNodoCircular();
+			break;
+		case 3:
+			cout << "\n\n MODIFICAR UN NODO DE LA LISTA \n\n";
+			modificarNodoCircular();
+			break;
+		case 4:
+			cout << "\n\n ELIMINAR UN NODO DE LA LISTA \n\n";
+			eliminarNodoCircular();
+			break;
+		case 5:
+			cout << "\n\n DESPLEGAR LISTA DE NODOS DEL PRIMERO AL UTLIMO\n\n";
+			desplegarListaPUCircular();
+			break;
+		case 6:
+			cout << "\n\n DESPLEGAR LISTA DE NODOS DEL UTLIMO AL PRIMERO\n\n";
+			desplegarListaUPCircular();
+			break;
+		case 7:
+			cout << "\n\n Programa finalizado...";
+			break;
+		default:
+			cout << "\n\n Opcion No Valida \n\n";
+		break;
+		}
+		
+
+	} while (opcion != 7);
+
+}
+///////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+void Pilas()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Pila" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|              ° PILA °               |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Insertar      | 4. Eliminar      |";
+		cout << endl << "| 2. Buscar        | 5. Desplegar     |";
+		cout << endl << "| 3. Modificar     | 6. Menu          |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " INSERTA NODO EN LA PILA " << endl << endl;
+			insertarNodoPila();
+			break;
+		case 2:
+			cout << endl << endl << " BUSCAR UN NODO EN LA PILA " << endl << endl;
+			buscarNodoPila();
+			break;
+		case 3:
+			cout << endl << endl << " MODIFICAR UN NODO DE LA PILA " << endl << endl;
+			modificarNodoPila();
+			break;
+		case 4:
+			cout << endl << endl << " ELIMINAR UN NODO DE LA PILA " << endl << endl;
+			eliminarNodoPila();
+			break;
+		case 5:
+			cout << endl << endl << " DESPLEGAR PILA DE NODOS " << endl << endl;
+			desplegarPilaPila();
+			break;
+		case 6:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+		break;
+		default:
+			cout << "\n\n Opcion No Valida \n\n";
+			break;
+
+		}
+
+
+
+	} while (opcion != 6);
+}
+///////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+void Colas()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Cola" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|              ° COLA °               |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Insertar      | 4. Eliminar      |";
+		cout << endl << "| 2. Buscar        | 5. Desplegar     |";
+		cout << endl << "| 3. Modificar     | 6. Menu          |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " INSERTA NODO EN LA COLA " << endl << endl;
+			insertarNodoCola();
+			break;
+		case 2:
+			cout << endl << endl << " BUSCAR UN NODO EN LA COLA " << endl << endl;
+			buscarNodoCola();
+			break;
+		case 3:
+			cout << endl << endl << " MODIFICAR UN NODO DE LA COLA " << endl << endl;
+			modificarNodoCola();
+			break;
+		case 4:
+			cout << endl << endl << " ELIMINAR UN NODO DE LA COLA " << endl << endl;
+			eliminarNodoCola();
+			break;
+		case 5:
+			cout << endl << endl << " DESPLEGAR COLA DE NODOS " << endl << endl;
+			desplegarColaCola();
+			break;
+		case 6:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+		break;
+		default:
+			cout << "\n\n Opcion No Valida \n\n";
+			break;
+		}
+
+
+	} while (opcion != 6);
+}
+///////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+void Arboles()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Arbol" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|     ° ARBOL BINARIO DE BUSQUEDA °   |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Crear Arbol                      |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Crear Arbol " << endl << endl;
+			ArbolBB();break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			break;
+		
+		
+		}
+
+
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
+void Grafoss()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Grafo" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|              ° GRAFO °              |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Mostrar matriz                   |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Mostrar Matriz " << endl << endl;
+			grafoxd();	break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			break;
+		
+	
+		}
+
+
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
+void BubbleS()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Bubble Sort" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|           ° BUBBLE SORT  °          |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Crear Lista                      |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Crear Lista " << endl << endl;
+			BubbleSort();break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			break;
+		
+		}
+
+
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
+void InsertionS()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Insertion Sort" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|           ° INSERTION SORT  °       |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Crear Lista                      |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Crear Lista " << endl << endl;
+			InsertionSort();break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			break;
+			
+		}
+
+
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
+void CountingS()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Counting Sort" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|           ° COUNTING SORT  °        |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Ver Orden de Lista               |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Lista Ordenada " << endl << endl;
+			CountingSort();break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			
+		break;
+		}
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
+void MergeS()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Merge Sort" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|           ° MERGE SORT  °           |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Ver Lista                        |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Lista  " << endl << endl;
+			mergeSort();break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			break;
+		
+		}
+
+
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
+void ShellS()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Shell Sort" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|           ° SHELL SORT  °           |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Ver Lista                        |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Lista  " << endl << endl;
+			shellsort1();break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			
+		break;
+		}
+
+
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
+
+///////////////////////////////////////////////
+void SelectionS()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Selection Sort" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|           ° SELECTION SORT  °       |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Ver Lista                        |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Lista  " << endl << endl;
+			SelecccionSort();break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			
+		break;
+		}
+
+
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+void QuickS()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Quick Sort" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|           ° QUICK SORT  °           |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Ver Lista                        |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Lista  " << endl << endl;
+			QuickS();
+		
+		break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			break;
+		}
+
+
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
 void insertarNodoDoble() {
 	nodoDoble* nuevo = new nodoDoble();
 	cout << " Ingrese el dato que contendra el nuevo Nodo: ";
@@ -1355,6 +1591,7 @@ void BubbleSort()
 		ordenar(lista, ord);
 		imprimir(lista);
 	}
+	return;
 }
 
 int ordenar(int lista[], int ord)
@@ -1419,7 +1656,7 @@ void InsertionSort()
 						arr[k] = arr[k - 1];
 					break;
 				}
-			
+
 			}
 		}
 		else
@@ -1488,7 +1725,7 @@ void printArray(int array[], int size) {
 }
 
 // Driver code
-void CountingSort()  {
+void CountingSort() {
 	int array[] = { 4, 2, 2, 8, 3, 3, 1 };
 	int n = sizeof(array) / sizeof(array[0]);
 	countSort(array, n);
@@ -1579,7 +1816,7 @@ void mergeSort()
 
 	cout << "\nMatriz Ordenada \n";
 	printArray(arr, arr_size);
-	return ;
+	return;
 }
 
 
@@ -1627,7 +1864,7 @@ void shellsort1()
 	cout << "\nLista Ordenada: \n";
 	printArray(arr, n);
 
-	return ;
+	return;
 }
 
 ////////////////////////////////////////
@@ -1669,7 +1906,7 @@ void SelecccionSort()
 	selectionSort(arr, n);
 	cout << "Sorted array: \n";
 	printArray(arr, n);
-	return ;
+	return;
 }
 
 
@@ -1820,5 +2057,5 @@ void grafoxd() {
 	}
 	cin.get();
 	cin.get();
-	return ;
+	return;
 }
