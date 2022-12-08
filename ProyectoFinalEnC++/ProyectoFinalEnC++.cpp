@@ -11,13 +11,13 @@ void ListaDobleCirculares();
 void Pilas();
 void Colas();
 void Arboles();
-void Grafoss();
+
 
 void BubbleS();
 void InsertionS();
 void CountingS();
 void MergeS();
-void ShellS();
+
 void SelectionS();
 void QuickS();
 
@@ -129,31 +129,27 @@ int main()
         case 6:
             Arboles();
             break;
+     
         case 7:
-            Grafoss();
-            break;
-        case 8:
             BubbleS();
             break;
-        case 9:
+        case 8:
             InsertionS();
             break;
-        case 10:
+        case 9:
 			CountingS();
             break;
-        case 11:
+        case 10:
             MergeS();
             break;
-        case 12:
-            ShellS();
-            break;
-        case 13:
+      
+        case 11:
             SelectionS();
             break;
-        case 14:
+        case 12:
             QuickS();
             break;
-        case 15:
+        case 13:
 			cout << "\n\n Programa finalizado...";
 			exit(EXIT_SUCCESS);
 			break;
@@ -172,17 +168,17 @@ void menu()
     cout << "\n|---------------------------------------------|";
     cout << "\n|            °PROYECTO FINAL EN C++°          |";
     cout << "\n|-------------------------|-------------------|";
-    cout << "\n| 1. Lista Simple         | 8. Bubble Sort    |";
-    cout << "\n| 2. Lista Doble          | 9. Insertion Sort |";
-    cout << "\n| 3. Lista Doble Circular | 10. Counting Sort |";
-    cout << "\n| 4. Pila                 | 11. Merge Sort    |";
-    cout << "\n| 5. Cola                 | 12. Shell Sort    |";
-    cout << "\n| 6. Arbol                | 13. Selection Sort|";
-    cout << "\n| 7. Grafo                | 14. Quick Sort    |";
+    cout << "\n| 1. Lista Simple         | 7. Bubble Sort    |";
+    cout << "\n| 2. Lista Doble          | 8. Insertion Sort |";
+    cout << "\n| 3. Lista Doble Circular | 9. Counting Sort |";
+    cout << "\n| 4. Pila                 | 10. Merge Sort    |";
+    cout << "\n| 5. Cola                 | 11. Selection Sort|";
+    cout << "\n| 6. Arbol                | 12. Quick Sort    |";
+    cout << "\n|                         |                   |";
     cout << "\n|                         |                   |";
     cout << "\n|                         |                   |";
     cout << "\n|                  |------|-----|             |";
-    cout << "\n|                  |  15.Salir  |             |";
+    cout << "\n|                  |  13.Salir  |             |";
     cout << "\n|------------------|------|-----|-------------|";
     cout << "\n\n Escoja una Opcion: ";
 }
@@ -474,34 +470,6 @@ void Arboles()
 	} while (opcion != 2);
 }
 ///////////////////////////////////////////////
-void Grafoss()
-{
-	int opcion = 0;
-
-	do {
-		cout << "Grafo" << endl;
-		cout << endl << "|-------------------------------------|";
-		cout << endl << "|              ° GRAFO °              |";
-		cout << endl << "|------------------|------------------|";
-		cout << endl << "| 1. Mostrar matriz                   |";
-		cout << endl << "| 2. Menu                             |";
-		cout << endl << "|------------------|------------------|";
-		cout << endl << endl << " Escoja una Opcion: ";
-		cin >> opcion;
-		switch (opcion) {
-		case 1:
-			cout << endl << endl << " Mostrar Matriz " << endl << endl;
-			grafoxd();	break;
-		case 2:
-			cout << endl << endl << " Programa finalizado..." << endl << endl;
-			break;
-		
-	
-		}
-
-
-	} while (opcion != 2);
-}
 ///////////////////////////////////////////////
 void BubbleS()
 {
@@ -613,33 +581,7 @@ void MergeS()
 	} while (opcion != 2);
 }
 ///////////////////////////////////////////////
-void ShellS()
-{
-	int opcion = 0;
 
-	do {
-		cout << "Shell Sort" << endl;
-		cout << endl << "|-------------------------------------|";
-		cout << endl << "|           ° SHELL SORT  °           |";
-		cout << endl << "|------------------|------------------|";
-		cout << endl << "| 1. Ver Lista                        |";
-		cout << endl << "| 2. Menu                             |";
-		cout << endl << "|------------------|------------------|";
-		cout << endl << endl << " Escoja una Opcion: ";
-		cin >> opcion;
-		switch (opcion) {
-		case 1:
-			cout << endl << endl << " Lista  " << endl << endl;
-			shellsort1();break;
-		case 2:
-			cout << endl << endl << " Programa finalizado..." << endl << endl;
-			
-		break;
-		}
-
-
-	} while (opcion != 2);
-}
 ///////////////////////////////////////////////
 
 ///////////////////////////////////////////////
@@ -1821,51 +1763,7 @@ void mergeSort()
 
 
 
-///////////////////////////////
 
-int shellSort(int arr[], int n)
-{
-	for (int gap = n / 2; gap > 0; gap /= 2)
-	{
-
-		for (int i = gap; i < n; i += 1)
-		{
-
-			int temp = arr[i];
-
-
-			int j;
-			for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
-				arr[j] = arr[j - gap];
-
-
-			arr[j] = temp;
-		}
-	}
-	return 0;
-}
-
-void printArray2(int arr[], int n)
-{
-	for (int i = 0; i < n; i++)
-		cout << arr[i] << " ";
-}
-
-void shellsort1()
-{
-	int arr[] = { 12, 34, 54, 2, 3 }, i;
-	int n = sizeof(arr) / sizeof(arr[0]);
-
-	cout << "Lista desordenada: \n";
-	printArray(arr, n);
-
-	shellSort(arr, n);
-
-	cout << "\nLista Ordenada: \n";
-	printArray(arr, n);
-
-	return;
-}
 
 ////////////////////////////////////////
 
@@ -1911,151 +1809,3 @@ void SelecccionSort()
 
 
 
-
-//////////////////////////////7
-#include <cstdlib>
-#include <vector>
-class Vertice
-{
-public:
-	vector<int> adyacencias;
-	int valor;
-	Vertice();
-	Vertice(int);
-};
-
-Vertice::Vertice() {
-
-}
-
-Vertice::Vertice(int pValor) {
-	valor = pValor;
-}
-
-class Grafo
-{
-public:
-	int tamano;
-	vector<Vertice> lista;
-	void agregarAdyacencia(int, int);
-	void agregarVertice(Vertice);
-	vector< vector<int> > caminos;
-	vector< vector<int> > path(int, int);
-	Grafo();
-};
-Grafo::Grafo() {
-}
-
-void Grafo::agregarAdyacencia(int pos, int pos2) {
-	bool existe = false;
-	bool yaEsta = false;
-	if (caminos.size() == 0) {
-		vector<int> temp;
-		temp.push_back(pos);
-		temp.push_back(pos2);
-		caminos.push_back(temp);
-	}
-
-	else {
-		int i = 0;
-		while (i < caminos.size()) {
-			if (caminos[i].size() == 2) {
-				if (caminos[i][0] == pos && caminos[i][1] == pos2) {
-					yaEsta = true;
-					break;
-				}
-				else i += 1;
-			}
-			else i += 1;
-
-		}
-		i = 0;
-		while (i < caminos.size()) {
-			int j = caminos[i].size() - 1;
-			if (caminos[i][j] == pos) {
-				existe = true;
-				break;
-			}
-			else {
-				i += 1;
-			}
-		}
-		if (existe) {
-			vector<int> temp2;
-			int j = 0;
-			while (j < caminos[i].size()) {
-				temp2.push_back(caminos[i][j]);
-				j += 1;
-			}
-			temp2.push_back(pos2);
-			existe = false;
-			caminos.push_back(temp2);
-		}
-		if (!yaEsta) {
-			vector<int> temp2;
-			temp2.push_back(pos);
-			temp2.push_back(pos2);
-			yaEsta = false;
-			caminos.push_back(temp2);
-		}
-		else {
-			vector<int> temp;
-			temp.push_back(pos);
-			temp.push_back(pos2);
-			caminos.push_back(temp);
-			existe = false;
-		}
-	}
-}
-
-void Grafo::agregarVertice(Vertice vertice) {
-	lista.push_back(vertice);
-}
-
-vector< vector<int> > Grafo::path(int id1, int id2) {
-	for (int i = 0; i < caminos.size(); i++) {
-		if (caminos[i][0] == id1 && caminos[i][caminos[i].size() - 1] == id2) {
-			vector< vector<int> > Lista;
-			Lista.push_back(caminos[i]);
-			return Lista;
-		}
-	}
-}
-
-void grafoxd() {
-	Vertice vertice1 = Vertice(50);
-	Vertice vertice2 = Vertice(25);
-	Vertice vertice3 = Vertice(13);
-	Vertice vertice4 = Vertice(24);
-	Vertice vertice5 = Vertice(33);
-	Grafo graph = Grafo();
-	graph.agregarVertice(vertice1);
-	graph.agregarVertice(vertice2);
-	graph.agregarVertice(vertice3);
-	graph.agregarVertice(vertice4);
-	graph.agregarVertice(vertice5);
-	graph.agregarAdyacencia(50, 25);
-	graph.agregarAdyacencia(25, 13);
-	graph.agregarAdyacencia(13, 24);
-	graph.agregarAdyacencia(24, 33);
-	vector< vector<int> > Lista = graph.path(50, 33);
-	for (int i = 0; i < Lista[0].size(); i++) {
-		cout << Lista[0][i];
-		cout << "-";
-	}
-	cout << "" << endl;
-	vector< vector<int> > Lista2 = graph.path(50, 13);
-	for (int j = 0; j < Lista2[0].size(); j++) {
-		cout << Lista2[0][j];
-		cout << "-";
-	}
-	cout << "" << endl;
-	vector< vector<int> > Lista3 = graph.path(24, 33);
-	for (int j = 0; j < Lista3[0].size(); j++) {
-		cout << Lista3[0][j];
-		cout << "-";
-	}
-	cin.get();
-	cin.get();
-	return;
-}
