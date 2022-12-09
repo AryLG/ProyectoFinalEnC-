@@ -20,8 +20,11 @@ void MergeS();
 
 void SelectionS();
 void QuickS();
+void ShellS();
+void quicksort123();
+void burbuja();
 
-
+void InsersionSo();
 
 //LISTA simple
 struct nodoSimple {
@@ -89,14 +92,16 @@ void eliminarNodoCola();
 void desplegarColaCola();
 
 void ArbolBB();
-
+void listaCirculares();
 void BubbleSort();
 void InsertionSort();
 void CountingSort();
 void mergeSort();
-void shellsort1();
+void ShellSort();
+void TreeBS();void RadixS();
+void ListaCircular();
+
 void SelecccionSort();
-void grafoxd();
 
 #include<conio.h>
 
@@ -143,44 +148,51 @@ int main()
             break;
 
        case 2:
-            ListaDobles();
+            ListaCircular();
             break;
+	   case 3:
+		   ListaDobles();
+		   break;
 
-        case 3:
+        case 4:
             ListaDobleCirculares();
             break;
-        case 4:
+        case 5:
             Pilas();
             break;
-        case 5:
+        case 6:
             Colas();
             break;
-        case 6:
+        case 7:
             Arboles();
             break;
-		case 7:
+		case 8:
 			Grafoos();
 			break;
-        case 8:
+        case 9:
             BubbleS();
             break;
-        case 9:
+        case 10:
             InsertionS();
             break;
-        case 10:
+        case 11:
 			CountingS();
             break;
-        case 11:
+        case 12:
             MergeS();
             break;
       
-        case 12:
+        case 13:
             SelectionS();
             break;
-        case 13:
+        case 14:
             QuickS();
             break;
-        case 14:
+		case 15:
+			ShellSort();
+			break;
+			
+        case 18:
 			cout << "\n\n Programa finalizado...";
 			exit(EXIT_SUCCESS);
 			break;
@@ -189,7 +201,7 @@ int main()
             break;
         }
 
-    } while (opcion != 16);
+    } while (opcion != 18);
 
     return 0;
 }
@@ -199,17 +211,21 @@ void menu()
     cout << "\n|---------------------------------------------|";
     cout << "\n|            °PROYECTO FINAL EN C++°          |";
     cout << "\n|-------------------------|-------------------|";
-    cout << "\n| 1. Lista Simple         | 8. Bubble Sort    |";
-    cout << "\n| 2. Lista Doble Enlazada | 9. Insertion Sort |";
-    cout << "\n| 3. Lista Doble Circular | 10. Counting Sort |";
-    cout << "\n| 4. Pila                 | 11. Merge Sort    |";
-    cout << "\n| 5. Cola                 | 12. Selection Sort|";
-    cout << "\n| 6. Arbol                | 13. Quick Sort    |";
-    cout << "\n| 7. Grafos               |                   |";
-    cout << "\n|                         |                   |";
+	cout << "\n|      ESTRUCTURAS DE     |  ALGORITMOS DE    |";
+	cout << "\n|          DATOS          |   ORDENAMIENTO    |";
+	cout << "\n|                         |                   |";
+    cout << "\n| 1. Lista Simple         | 9. Bubble Sort    |";
+	cout << "\n| 2. Lista Circular       | 10. Insertion Sort|";
+    cout << "\n| 3. Lista Doble Enlazada | 11. Counting Sort |";
+    cout << "\n| 4. Lista Doble Circular | 12. Merge Sort    |";
+    cout << "\n| 5. Pila                 | 13. Selection Sort|";
+    cout << "\n| 6. Cola                 | 14. Quick Sort    |";
+    cout << "\n| 7. Arbol                | 15. Shell Sort    |";
+    cout << "\n| 8. Grafos               | 16. Radix Sort    |";
+    cout << "\n|                         | 17. Tree Binary S |";
     cout << "\n|                         |                   |";
     cout << "\n|                  |------|-----|             |";
-    cout << "\n|                  |  14.Salir  |             |";
+    cout << "\n|                  |  18.Salir  |             |";
     cout << "\n|------------------|------|-----|-------------|";
     cout << "\n\n Escoja una Opcion: ";
 }
@@ -262,6 +278,33 @@ void ListaSimples()
   }
 
     } while (opcion != 6);
+}
+
+//////////////////////////////////////////////////////////////////
+void ListaCircular()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Lista Circular" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|           ° LISTA CIRCULAR  °       |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Ver Orden de Lista               |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Lista Ordenada " << endl << endl;
+			listaCirculares(); break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+
+			break;
+		}
+	} while (opcion != 2);
 }
 
 ///////////////////////////7
@@ -562,7 +605,7 @@ void BubbleS()
 		switch (opcion) {
 		case 1:
 			cout << endl << endl << " Crear Lista " << endl << endl;
-			BubbleSort();break;
+			burbuja();break;
 		case 2:
 			cout << endl << endl << " Programa finalizado..." << endl << endl;
 			break;
@@ -590,7 +633,7 @@ void InsertionS()
 		switch (opcion) {
 		case 1:
 			cout << endl << endl << " Crear Lista " << endl << endl;
-			InsertionSort();break;
+			InsersionSo();break;
 		case 2:
 			cout << endl << endl << " Programa finalizado..." << endl << endl;
 			break;
@@ -687,6 +730,36 @@ void SelectionS()
 	} while (opcion != 2);
 }
 ///////////////////////////////////////////////
+// ///////////////////////////////////////////////
+void ShellSort()
+{
+	int opcion = 0;
+
+	do {
+		cout << "Shell Sort" << endl;
+		cout << endl << "|-------------------------------------|";
+		cout << endl << "|           ° SHELL SORT  °           |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << "| 1. Crear Lista                        |";
+		cout << endl << "| 2. Menu                             |";
+		cout << endl << "|------------------|------------------|";
+		cout << endl << endl << " Escoja una Opcion: ";
+		cin >> opcion;
+		switch (opcion) {
+		case 1:
+			cout << endl << endl << " Lista  " << endl << endl;
+			ShellS();
+
+			break;
+		case 2:
+			cout << endl << endl << " Programa finalizado..." << endl << endl;
+			break;
+		}
+
+
+	} while (opcion != 2);
+}
+///////////////////////////////////////////////
 ///////////////////////////////////////////////
 void QuickS()
 {
@@ -705,7 +778,7 @@ void QuickS()
 		switch (opcion) {
 		case 1:
 			cout << endl << endl << " Lista  " << endl << endl;
-			QuickS();
+			quicksort123();
 		
 		break;
 		case 2:
@@ -1591,98 +1664,96 @@ void ArbolBB()
 
 //Bublle sort
 
-int ordenar(int[], int);
-int imprimir(int[]);
-
-void BubbleSort()
-{
-	int c, lista[9], ord;
-	for (c = 0; c <= 9; c++)
-	{
-		cout << "Numero " << c + 1 << ": "; cin >> lista[c];
-	}
-	cout << " Ascendente [1] Descendente [2] --> Opcion: "; cin >> ord;
-	if (ord == 1 || ord == 2)
-	{
-		ordenar(lista, ord);
-		imprimir(lista);
-	}
-	return ;
-}
-
-int ordenar(int lista[], int ord)
-{
-	int c1, c2, aux;
-	for (c1 = 0; c1 <= 9; c1++)
-	{
-		for (c2 = 0; c2 < 9; c2++)
-		{
-			if (ord == 1)
-			{
-				if (lista[c2] > lista[c2 + 1])
-				{
-					aux = lista[c2];
-					lista[c2] = lista[c2 + 1];
-					lista[c2 + 1] = aux;
-				}
-			}
-			else
-			{
-				if (lista[c2] < lista[c2 + 1])
-				{
-					aux = lista[c2];
-					lista[c2] = lista[c2 + 1];
-					lista[c2 + 1] = aux;
-				}
+static void bubblesort(int Array[], int n) {
+	int temp;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n - i - 1; j++) {
+			if (Array[j] > Array[j + 1]) {
+				temp = Array[j];
+				Array[j] = Array[j + 1];
+				Array[j + 1] = temp;
 			}
 		}
 	}
-	return 0;
+}
+static void bubblesort2(int Array[], int n) {
+	int temp;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n - i - 1; j++) {
+			if (Array[j] < Array[j + 1]) {
+				temp = Array[j];
+				Array[j] = Array[j + 1];
+				Array[j + 1] = temp;
+			}
+		}
+	}
 }
 
-int imprimir(int lista[])
-{
-	int c;
-	for (c = 0; c <= 9; c++)
-		cout << lista[c] << " ";
-	cin.get(); cin.get();
-	return 0;
+static void PrintArrayBS(int Array[], int n) {
+	for (int i = 0; i < n; i++)
+		cout << Array[i] << " ";
+	cout << "\n";
+}
+
+void burbuja() {
+	int MyArray[] = { 8, 10, 23, 100, 4, 9, 2 };
+	int n = sizeof(MyArray) / sizeof(MyArray[0]);
+	cout << "Arreglo Desordenado\n";
+	PrintArrayBS(MyArray, n);
+
+	bubblesort(MyArray, n);
+	cout << "\nArreglo Ascendentemente\n";
+	PrintArrayBS(MyArray, n);
+
+	bubblesort2(MyArray, n);
+	cout << "\nArreglo Descendentemente\n";
+	PrintArrayBS(MyArray, n);
+	return;
 }
 
 //INSERTION SORT
-void InsertionSort()
-{
-	int arr[50], tot, i, j, k, elem, index;
-	cout << "Ingrese el tamano para la matriz: ";
-	cin >> tot;
-	cout << "Enter " << tot << " Elementos de matriz: ";
-	for (i = 0; i < tot; i++)
-		cin >> arr[i];
-	for (i = 1; i < tot; i++)
-	{
-		elem = arr[i];
-		if (elem < arr[i - 1])
-		{
-			for (j = 0; j <= i; j++)
-			{
-				if (elem < arr[j])
-				{
-					index = j;
-					for (k = i; k > j; k--)
-						arr[k] = arr[k - 1];
-					break;
-				}
-
-			}
+static void insertionsort1(int Array[], int n) {
+	for (int i = 0; i < n; i++) {
+		int curr = Array[i];
+		int j = i - 1;
+		while (j >= 0 && curr < Array[j]) {
+			Array[j + 1] = Array[j];
+			Array[j] = curr;
+			j = j - 1;
 		}
-		else
-			continue;
-		arr[index] = elem;
 	}
-	cout << "\nLa nueva matriz (matriz ordenada):\n";
-	for (i = 0; i < tot; i++)
-		cout << arr[i] << "  ";
-	cout << endl;
+}
+static void insertionsort2(int Array[], int n) {
+	for (int i = 0; i < n; i++) {
+		int curr = Array[i];
+		int j = i - 1;
+		while (j >= 0 && curr > Array[j]) {
+			Array[j + 1] = Array[j];
+			Array[j] = curr;
+			j = j - 1;
+		}
+	}
+}
+
+static void PrintArrayIS(int Array[], int n) {
+	for (int i = 0; i < n; i++)
+		cout << Array[i] << " ";
+	cout << "\n";
+}
+
+void InsersionSo() {
+	int MyArray[] = { 5, 45, 23, 65, 9, 89, 3 };
+	int n = sizeof(MyArray) / sizeof(MyArray[0]);
+	cout << "Arreglo desordenado\n";
+	PrintArrayIS(MyArray, n);
+
+	insertionsort1(MyArray, n);
+	cout << "\nArreglo Ascendentemente\n";
+	PrintArrayIS(MyArray, n);
+
+	insertionsort2(MyArray, n);
+	cout << "\nArreglo Descendentemente\n";
+	PrintArrayIS(MyArray, n);
 	return;
 }
 
@@ -1691,61 +1762,94 @@ void InsertionSort()
 using namespace std;
 
 void countSort(int array[], int size) {
-	// The size of count must be at least the (max+1) but
-	// we cannot assign declare it as int count(max+1) in C++ as
-	// it does not support dynamic memory allocation.
-	// So, its size is provided statically.
+	
 	int output[10];
 	int count[10];
 	int max = array[0];
 
-	// Find the largest element of the array
 	for (int i = 1; i < size; i++) {
 		if (array[i] > max)
 			max = array[i];
 	}
 
-	// Initialize count array with all zeros.
 	for (int i = 0; i <= max; ++i) {
 		count[i] = 0;
 	}
 
-	// Store the count of each element
 	for (int i = 0; i < size; i++) {
 		count[array[i]]++;
 	}
 
-	// Store the cummulative count of each array
 	for (int i = 1; i <= max; i++) {
 		count[i] += count[i - 1];
 	}
 
-	// Find the index of each element of the original array in count array, and
-	// place the elements in output array
 	for (int i = size - 1; i >= 0; i--) {
 		output[count[array[i]] - 1] = array[i];
 		count[array[i]]--;
 	}
 
-	// Copy the sorted elements into original array
 	for (int i = 0; i < size; i++) {
 		array[i] = output[i];
 	}
 }
 
-// Function to print an array
-void printArray(int array[], int size) {
+void countSort2(int array[], int size) {
+
+	int output[10];
+	int count[10];
+	int max = array[0];
+
+	for (int i = 1; i < size; i++) {
+		if (array[i] > max)
+			max = array[i];
+	}
+
+	for (int i = 0; i <= max; ++i) {
+		count[i] = 0;
+	}
+
+	for (int i = 0; i < size; i++) {
+		count[array[i]]++;
+	}
+
+	for (int i = 1; i <= max; i++) {
+		count[i] += count[i - 1];
+	}
+
+	for (int i = size - 1; i >= 0; i--) {
+		output[count[array[i]] - 1] = array[i];
+		count[array[i]]--;
+	}
+
+	for (int i = 0; i < size; i++) {
+		array[i] = output[i];
+	}
+}
+
+void printArrayCS(int array[], int size) {
 	for (int i = 0; i < size; i++)
 		cout << array[i] << " ";
 	cout << endl;
 }
 
-// Driver code
+
 void CountingSort() {
-	int array[] = { 4, 2, 2, 8, 3, 3, 1 };
+	int array[] = { 4, 2, 2, 8, 3, 3, 1 ,8, 8 };
 	int n = sizeof(array) / sizeof(array[0]);
+	cout << "Arreglo desordenado\n";
+	printArrayCS(array, n);
+
 	countSort(array, n);
-	printArray(array, n);
+	cout << "\nArreglo Ascendentemente\n";
+	printArrayCS(array, n);
+
+	countSort2(array, n);
+	cout << "\nArreglo Descendentemente\n";
+	printArrayCS(array, n);
+	
+
+
 }
 
 //MERGE SORT
@@ -1826,12 +1930,12 @@ void mergeSort()
 	auto arr_size = sizeof(arr) / sizeof(arr[0]);
 
 	cout << "Matriz desordenada es \n";
-	printArray(arr, arr_size);
+	printArrayCS(arr, arr_size);
 
 	mergeSort(arr, 0, arr_size - 1);
 
 	cout << "\nMatriz Ordenada \n";
-	printArray(arr, arr_size);
+	printArrayCS(arr, arr_size);
 	return;
 }
 
@@ -1875,9 +1979,11 @@ void SelecccionSort()
 {
 	int arr[] = { 64, 25, 12, 22, 11 };
 	int n = sizeof(arr) / sizeof(arr[0]);
+	cout << "Matriz desordenada es \n";
+	printArrayCS(arr, n);
 	selectionSort(arr, n);
-	cout << "Sorted array: \n";
-	printArray(arr, n);
+	cout << "Arreglo Ordenado: \n";
+	printArrayCS(arr, n);
 	return;
 }
 
@@ -2161,3 +2267,251 @@ void mostrar_aristas()
 	}
 }
 
+#include <stdio.h>
+
+
+typedef struct _nodo {
+	int valor;
+	struct _nodo* siguiente;
+} tipoNodo;
+
+typedef tipoNodo* pNodo;
+typedef tipoNodo* Lista;
+
+// Funciones con listas:
+void Insertar(Lista* l, int v);
+void Borrar(Lista* l, int v);
+void BorrarLista(Lista*);
+void MostrarLista(Lista l);
+
+
+
+
+/////////////////lista circular///////////////////////////////////////////////
+
+void listaCirculares() {
+	Lista lista = NULL;
+	pNodo p;
+
+	Insertar(&lista, 10);
+	Insertar(&lista, 40);
+	Insertar(&lista, 30);
+	Insertar(&lista, 20);
+	Insertar(&lista, 50);
+
+	MostrarLista(lista);
+
+	Borrar(&lista, 30);
+	Borrar(&lista, 50);
+
+	MostrarLista(lista);
+
+	BorrarLista(&lista);
+	return;
+}
+
+void Insertar(Lista* lista, int v) {
+	pNodo nodo;
+
+	// Creamos un nodo para el nuvo valor a insertar
+	nodo = (pNodo)malloc(sizeof(tipoNodo));
+	nodo->valor = v;
+
+	// Si la lista está vacía, la lista será el nuevo nodo
+	// Si no lo está, insertamos el nuevo nodo a continuación del apuntado
+	// por lista
+	if (*lista == NULL) *lista = nodo;
+	else nodo->siguiente = (*lista)->siguiente;
+	// En cualquier caso, cerramos la lista circular
+	(*lista)->siguiente = nodo;
+}
+
+void Borrar(Lista* lista, int v) {
+	pNodo nodo;
+
+	nodo = *lista;
+
+	// Hacer que lista apunte al nodo anterior al de valor v
+	do {
+		if ((*lista)->siguiente->valor != v) *lista = (*lista)->siguiente;
+	} while ((*lista)->siguiente->valor != v && *lista != nodo);
+	// Si existe un nodo con el valor v:
+	if ((*lista)->siguiente->valor == v) {
+		// Y si la lista sólo tiene un nodo
+		if (*lista == (*lista)->siguiente) {
+			// Borrar toda la lista
+			free(*lista);
+			*lista = NULL;
+		}
+		else {
+			// Si la lista tiene más de un nodo, borrar el nodo  de valor v
+			nodo = (*lista)->siguiente;
+			(*lista)->siguiente = nodo->siguiente;
+			free(nodo);
+		}
+	}
+}
+
+void BorrarLista(Lista* lista) {
+	pNodo nodo;
+
+	// Mientras la lista tenga más de un nodo
+	while ((*lista)->siguiente != *lista) {
+		// Borrar el nodo siguiente al apuntado por lista
+		nodo = (*lista)->siguiente;
+		(*lista)->siguiente = nodo->siguiente;
+		free(nodo);
+	}
+	// Y borrar el último nodo
+	free(*lista);
+	*lista = NULL;
+}
+
+void MostrarLista(Lista lista) {
+	pNodo nodo = lista;
+
+	do {
+		printf("%d -> ", nodo->valor);
+		nodo = nodo->siguiente;
+	} while (nodo != lista);
+	printf("\n");
+}
+
+
+
+//////////////////////////////////////77
+static void shellsort(int Array[], int n) {
+	int gap = n / 2;
+	int temp, i, j;
+	while (gap > 0) {
+		for (i = gap; i < n; i++) {
+			temp = Array[i];
+			j = i;
+			while (j >= gap && Array[j - gap] > temp) {
+				Array[j] = Array[j - gap];
+				j = j - gap;
+			}
+			Array[j] = temp;
+		}
+		gap = gap / 2;
+	}
+}
+static void shellsort2(int Array[], int n) {
+	int gap = n / 2;
+	int temp, i, j;
+	while (gap > 0) {
+		for (i = gap; i < n; i++) {
+			temp = Array[i];
+			j = i;
+			while (j >= gap && Array[j - gap] < temp) {
+				Array[j] = Array[j - gap];
+				j = j - gap;
+			}
+			Array[j] = temp;
+		}
+		gap = gap / 2;
+	}
+}
+static void PrintArray(int Array[], int n) {
+	for (int i = 0; i < n; i++)
+		cout << Array[i] << " ";
+	cout << "\n";
+}
+
+void  ShellS() {
+	int MyArray[] = { 10, 1, 23, 50, 4, 9, 1 };
+	int n = sizeof(MyArray) / sizeof(MyArray[0]);
+
+	cout << "Arreglo desordenado\n";
+	PrintArray(MyArray, n);
+
+	shellsort(MyArray, n);
+	cout << "\nArreglo ordenado Ascendentemente\n";
+	PrintArray(MyArray, n);
+
+	shellsort2(MyArray, n);
+	cout << "\nArreglo ordenado Descendentemente\n";
+	PrintArray(MyArray, n);
+	return;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+static void quicksort(int Array[], int left, int right);
+static void quicksort2(int Array[], int left, int right);
+static int partition(int Array[], int left, int right);
+static void PrintArray(int Array[], int n);
+
+
+static void quicksort(int Array[], int left, int right) {
+	if (left < right) {
+		int pivot = partition(Array, left, right);
+		quicksort(Array, left, pivot - 1);
+		quicksort(Array, pivot + 1, right);
+	}
+}
+
+static void quicksort2(int Array[], int left, int right) {
+	if (left < right) {
+		int pivot = partition(Array, left, right);
+		quicksort(Array, left, pivot - 1);
+		quicksort(Array, pivot + 1, right);
+	}
+}
+static int partition(int Array[], int left, int right) {
+	int i = left;
+	int pivot = Array[right];
+	int temp;
+	for (int j = left; j <= right; j++) {
+		if (Array[j] < pivot) {
+			temp = Array[i];
+			Array[i] = Array[j];
+			Array[j] = temp;
+			i++;
+		}
+	}
+	temp = Array[right];
+	Array[right] = Array[i];
+	Array[i] = temp;
+	return i;
+}
+static int partition2(int Array[], int left, int right) {
+	int i = left;
+	int pivot = Array[right];
+	int temp;
+	for (int j = left; j >= right; j++) {
+		if (Array[j] > pivot) {
+			temp = Array[i];
+			Array[i] = Array[j];
+			Array[j] = temp;
+			i++;
+		}
+	}
+	temp = Array[right];
+	Array[right] = Array[i];
+	Array[i] = temp;
+	return i;
+}
+
+static void PrintArray34(int Array[], int n) {
+	for (int i = 0; i < n; i++)
+		cout << Array[i] << " ";
+	cout << "\n";
+}
+
+void quicksort123() {
+	int MyArray[] = { 8, 5, 25, 50, 8, 10, 23 };
+	int n = sizeof(MyArray) / sizeof(MyArray[0]);
+	cout << "Arreglo Desordenado\n";
+	PrintArray34(MyArray, n);
+
+	quicksort(MyArray, 0, n - 1);
+	cout << "\nArreglo Ascendente\n";
+	PrintArray34(MyArray, n);
+
+
+
+	return;
+
+}
