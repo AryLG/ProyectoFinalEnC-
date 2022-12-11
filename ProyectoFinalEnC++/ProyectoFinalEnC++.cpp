@@ -871,9 +871,6 @@ void modificarNodoDoble() {
 	}
 }
 
-// primero = 23      ultimo  = 78    actual  = 12    anterior =  78      encontrado = false      nodoBuscado = 12;
-
-// lista doble         NULL <- 45 -> <- 23 -> <- 78 -> <- 12 -> NULL
 
 void eliminarNodoDoble() {
 	nodoDoble* actual = new nodoDoble();
@@ -1039,9 +1036,7 @@ void modificarNodoSimple() {
 	}
 }
 
-// primero = 12    ultimo = 6    actual =  13     anterior = 6    encontrado  = true     nodoBuscado = 98         lis 12 . 45 . 6 . 13                 98
-
-//Lista Simple =                 12 ->  98 ->  6 ->  null        13 -> NULL      
+     
 
 void eliminarNodoSimple() {
 	nodoSimple* actual = new nodoSimple();
@@ -1192,9 +1187,6 @@ void modificarNodoCircular() {
 	}
 }
 
-// primero = 67    ultimo = 12                nuevo = 12            actual = 12           anterior = 8       encontrado = false     nodoBuscado = 45               
-
-// lista circular doble  =            (12) <- 67 -> <- 45 -> <- 8 -> <- 12 -> (67)
 
 void eliminarNodoCircular() {
 	nodoCircular* actual = new nodoCircular();
@@ -1343,9 +1335,7 @@ void modificarNodoPila() {
 	}
 }
 
-// primero = 9       actual =  9    anterior = null     nodoBuscado = 9   encontrado = false            4,7,8,9
 
-//PILA  -     9 -> 8 -> 7 -> 4 -> null                       9   8  7  4
 
 void eliminarNodoPila() {
 	nodoPila* actual = new nodoPila();
@@ -1481,9 +1471,7 @@ void modificarNodoCola() {
 	}
 }
 
-// primero = 45    ultimo = 12      actual = 12   anterior = null      encontrado = false         nodoBuscado = 6              45, 6, 7 , 12
-
-// COLA            45 -> 6 -> 7 ->  12 -> NULL      
+    
 
 void eliminarNodoCola() {
 	nodoCola* actual = new nodoCola();
@@ -1559,8 +1547,7 @@ struct nodoABB {
 };
 
 typedef struct nodoABB* ABB;
-/* es un puntero de tipo nodo que hemos llamado ABB, que ulitizaremos
-   para mayor facilidad de creacion de variables */
+
 
 ABB crearNodo(int x)
 {
@@ -1629,10 +1616,10 @@ void verArbol(ABB arbol, int n)
 
 void ArbolBB()
 {
-	ABB arbol = NULL;   // creado Arbol
+	ABB arbol = NULL;   
 
-	int n;  // numero de nodos del arbol
-	int x; // elemento a insertar en cada nodo
+	int n;  
+	int x; 
 
 	cout << "\n\t\t  ..[ ARBOL BINARIO DE BUSQUEDA ]..  \n\n";
 
@@ -2038,10 +2025,7 @@ void agrega_arista(Tnodo& aux, Tnodo& aux2, Tarista& nuevo)
 	}
 
 }
-/*                      INSERTAR ARISTA
-	funcion que busca las posiciones de memoria de los nodos
-	y hace llamado a agregar_arista para insertar la arista
----------------------------------------------------------------------*/
+
 void insertar_arista()
 {
 	char ini, fin;
@@ -2081,10 +2065,6 @@ void insertar_arista()
 	}
 }
 
-/*          FUNCION PARA BORRAR TODAS LAS ARISTAS DE UN NODO
-	esta funcion es utilizada al borrar un nodo pues si tiene aristas
-	es nesesario borrarlas tambien y dejar libre la memoria
----------------------------------------------------------------------*/
 void vaciar_aristas(Tnodo& aux)
 {
 	Tarista q, r;
@@ -2096,11 +2076,6 @@ void vaciar_aristas(Tnodo& aux)
 		delete(r);
 	}
 }
-/*                      ELIMINAR NODO
-	funcion utilizada para eliminar un nodo del grafo
-	pero para eso tambien tiene que eliminar sus aristas por lo cual
-	llama a la funcion vaciar_aristas para borrarlas
----------------------------------------------------------------------*/
 void eliminar_nodo()
 {
 	char var;
